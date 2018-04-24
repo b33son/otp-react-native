@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { FormLabel, FormInput, Button } from "react-native-elements";
+import firebase from "firebase";
 import axios from "axios";
 
 const ROOT_URL =
@@ -24,6 +25,8 @@ export default class Signin extends Component {
         phone: this.state.phone,
         code: this.state.code
       });
+
+      firebase.auth().signInWithCustomToken(data.token);
       console.log(response);
       debugger;
     } catch (err) {
@@ -36,7 +39,7 @@ export default class Signin extends Component {
   render() {
     return (
       <View style={{ marginBottom: 10 }}>
-        <Text>Sign In</Text>
+        <FormLabel>Sign In</FormLabel>
         <FormLabel>Enter Phone Number</FormLabel>
         <FormInput
           value={this.state.phone}

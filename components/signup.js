@@ -54,7 +54,7 @@ export default class Signup extends Component {
   render() {
     return (
       <View style={{ marginBottom: 10 }}>
-        <Text>Sign Up</Text>
+        <FormLabel>Sign Up</FormLabel>
         <FormLabel>Enter Phone Number</FormLabel>
         <FormInput
           value={this.state.phone}
